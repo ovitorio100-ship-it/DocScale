@@ -436,7 +436,7 @@ section {
 }
 
 .hero-image-area {
-    background: url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+    background: url('hero.jpg') center/cover no-repeat;
     border-radius: var(--border-radius-section);
     height: 600px;
     position: relative;
