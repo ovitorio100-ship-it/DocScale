@@ -140,6 +140,13 @@ section {
     padding: 22px 40px;
 }
 
+@media (max-width: 768px) {
+    .large-cta {
+        font-size: 1rem;
+        padding: 18px 25px;
+    }
+}
+
 .center-btn {
     text-align: center;
 }
@@ -236,6 +243,15 @@ section {
     position: relative;
     transform: translateY(20px);
     transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+    .modal-title {
+        font-size: 1.3rem;
+    }
 }
 
 .modal-overlay.active .modal-content {
@@ -464,6 +480,23 @@ section {
     }
     .hero-image-area::after {
         background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 50px;
+    }
+    .headline { font-size: 2rem; }
+    .hero-content .subtitle { font-size: 1.05rem; }
+    .hero-image-area {
+        height: 280px;
+        margin-bottom: 20px;
+    }
+    .meta-items {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 30px;
     }
 }
 
