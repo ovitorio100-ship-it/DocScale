@@ -452,7 +452,7 @@ section {
 }
 
 .hero-image-area {
-    background: url('hero.jpg') center/cover no-repeat;
+    background: url('hero.jpg') center 10%/cover no-repeat;
     border-radius: var(--border-radius-section);
     height: 600px;
     position: relative;
@@ -873,6 +873,7 @@ section {
 }
 
 .mentor-photo-wrapper {
+    width: 100%;
     aspect-ratio: 3/4;
     border-radius: 16px;
     border: 1px solid var(--gold-rgba-30);
@@ -941,6 +942,7 @@ section {
         order: -1;
     }
     .mentor-photo-wrapper {
+        width: 100%;
         max-width: 400px;
         margin: 0 auto;
     }
