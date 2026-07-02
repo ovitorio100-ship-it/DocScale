@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocScale Mentoria | Escale sua Clínica</title>
+    <meta name="description" content="Mentoria Premium para Médicos. Transforme sua clínica em um negócio lucrativo, profissional e escalável.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20na%20mentoria%20DocScale." target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- Modal de Captura de Lead -->
+    <div id="lead-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar modal">&times;</button>
+            <h3 class="modal-title">Um último passo para garantir sua vaga</h3>
+            <form id="lead-form" class="modal-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" placeholder="WhatsApp" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="specialty" placeholder="Especialidade médica" required>
+                </div>
+                <button type="submit" class="cta-button submit-btn">FINALIZAR MINHA INSCRIÇÃO</button>
+                <p class="privacy-text">🔒 Seus dados são protegidos</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1 — HERO -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content fade-up">
+                <img src="logo.jpg" alt="DocScale Logo" class="logo-img">
+                <div class="eyebrow">Mentoria Premium para Médicos &middot; Turma Atual</div>
+                <h1 class="headline">Transforme sua clínica em um negócio lucrativo, profissional e escalável</h1>
+                <p class="subtitle">A mentoria que une gestão empresarial de alto nível com a realidade do médico empreendedor. Criada por quem já fez — não por quem só ensina.</p>
+                
+                <div class="meta-items">
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        Online/Presencial
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        90 dias
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Vagas Limitadas
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-text">Vagas preenchidas — 85% esgotadas</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <button class="cta-button open-modal">QUERO ESCALAR MINHA CLÍNICA &rarr;</button>
+            </div>
+            <!-- Empty div for desktop background composition -->
+            <div class="hero-image-area"></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2 — O PROBLEMA -->
+    <section class="problems-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">O Problema</span>
+                <h2 class="section-title">Os 3 erros que mantêm médicos trabalhando demais e lucrando de menos</h2>
+                <p class="section-subtitle">A maioria dos médicos cai em pelo menos uma dessas armadilhas.</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title">A ilusão do faturamento alto</h3>
+                    <p class="card-desc">Faturar R$200 mil e não saber quanto sobrou depois de equipe, aluguel, impostos e fornecedores. Se você não sabe o número exato do seu lucro líquido, está gerenciando no escuro.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title">A armadilha do volume</h3>
+                    <p class="card-desc">Mais pacientes, mais procedimentos, mais horas de trabalho — e no fim do mês o lucro não muda. Porque o problema não é quantidade. É modelo de negócio.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title">Operar sem gestão</h3>
+                    <p class="card-desc">Ser um excelente médico não te torna automaticamente um bom gestor. Sem processos, indicadores e equipe alinhada, a clínica depende 100% de você.</p>
+                </div>
+            </div>
+            
+            <div class="center-btn">
+                <button class="cta-button open-modal">QUERO MUDAR ESSA REALIDADE &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3 — COMPARATIVO -->
+    <section class="comparison-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Quem não sabe persegue faturamento. Quem sabe persegue lucro e liberdade.</h2>
+                <p class="section-subtitle">A diferença não está em trabalhar mais — está em ter um sistema de gestão.</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-col red-col">
+                    <h3 class="col-title">❌ Médico sem gestão</h3>
+                    <ul class="col-list">
+                        <li>❌ Fatura alto mas não sabe o lucro real</li>
+                        <li>❌ É refém da agenda e não consegue tirar férias</li>
+                        <li>❌ Equipe desalinhada e alta rotatividade</li>
+                        <li>❌ Sem processos: tudo depende do dono</li>
+                        <li>❌ Cresce no faturamento, mas não na margem</li>
+                        <li>❌ Não tem indicadores — decide no achismo</li>
+                        <li>❌ Tributação errada come o lucro</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-col gold-col">
+                    <h3 class="col-title">✅ Médico com gestão DocScale</h3>
+                    <ul class="col-list">
+                        <li>✅ Conhece sua margem em cada procedimento</li>
+                        <li>✅ Tem processos que funcionam sem sua presença</li>
+                        <li>✅ Equipe treinada, engajada e que bate metas</li>
+                        <li>✅ Agenda otimizada com pacientes de alto valor</li>
+                        <li>✅ Fatura menos e lucra muito mais</li>
+                        <li>✅ Dashboard com indicadores em tempo real</li>
+                        <li>✅ Planejamento tributário que protege o lucro</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-40">
+                <button class="cta-button open-modal">QUERO SER UM MÉDICO GESTOR &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIÁRIO -->
+    <section class="intermediate-cta">
+        <div class="container text-center fade-up">
+            <p class="cta-guarantee">🔒 Garantia de 30 dias &middot; Vagas limitadas</p>
+            <button class="cta-button open-modal">GARANTIR MINHA VAGA AGORA &rarr;</button>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4 — CASO REAL -->
+    <section class="case-section">
+        <div class="container fade-up">
+            <div class="section-header left-align">
+                <span class="tag">Caso Real · Verídico</span>
+                <h2 class="section-title">De clínica desorganizada a operação lucrativa e escalável</h2>
+            </div>
+            
+            <div class="case-grid">
+                <div class="case-video">
+                    <div class="video-placeholder">
+                        <div class="play-btn"></div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-steps">
+                        <div class="step">
+                            <div class="step-label">Antes da mentoria</div>
+                            <div class="step-value">Zero Gestão</div>
+                            <div class="step-desc">Trabalhava 12h/dia, refém da agenda e equipe rotativa.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-label">Após 3 meses</div>
+                            <div class="step-value">+40% Lucro</div>
+                            <div class="step-desc">Ajuste de margem e precificação correta dos procedimentos.</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-label">Após 6 meses</div>
+                            <div class="step-value">Automação</div>
+                            <div class="step-desc">Processos rodando sem depender do dono na operação.</div>
+                        </div>
+                        <div class="step highlight-step">
+                            <div class="step-label">Resultado atual</div>
+                            <div class="step-value">Liberdade</div>
+                            <div class="step-desc">Recorde de lucro com menos horas trabalhadas e equipe motivada.</div>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="case-quote">
+                        "A DocScale não me ensinou apenas a faturar mais, me ensinou a ter um negócio de verdade. Hoje eu sei exatamente de onde vem meu lucro e consigo tirar férias sem a clínica parar."
+                        <cite>— Dr. Roberto Silva, Dermatologista (São Paulo/SP)</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5 — PROVA SOCIAL -->
+    <section class="social-proof-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Prova Social</span>
+                <h2 class="section-title">Quem já participou não para de indicar</h2>
+                <p class="section-subtitle">Depoimentos reais de médicos que aplicaram o sistema.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-card">
+                    <div class="test-video">
+                        <div class="video-placeholder sm"><div class="play-btn sm-play"></div></div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="test-text">"Implementar os indicadores mudou o jogo. Percebi que estava perdendo dinheiro em procedimentos que achava lucrativos."</p>
+                    <p class="test-author">Dra. Camila Costa</p>
+                    <p class="test-spec">Cirurgiã Plástica</p>
+                </div>
+                <!-- Depoimento 2 -->
+                <div class="testimonial-card">
+                    <div class="test-video">
+                        <div class="video-placeholder sm"><div class="play-btn sm-play"></div></div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="test-text">"O módulo de gestão de pessoas resolveu minha dor com equipe. Hoje tenho um time engajado que vende por mim."</p>
+                    <p class="test-author">Dr. Marcelo Mendes</p>
+                    <p class="test-spec">Ortopedista</p>
+                </div>
+                <!-- Depoimento 3 -->
+                <div class="testimonial-card">
+                    <div class="test-video">
+                        <div class="video-placeholder sm"><div class="play-btn sm-play"></div></div>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="test-text">"Finalmente tenho uma empresa, não apenas um emprego de luxo. A mentoria se pagou no primeiro mês."</p>
+                    <p class="test-author">Dra. Juliana Ferreira</p>
+                    <p class="test-spec">Odontologista</p>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-40">
+                <button class="cta-button open-modal">QUERO TER ESSES RESULTADOS &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIÁRIO -->
+    <section class="intermediate-cta">
+        <div class="container text-center fade-up">
+            <p class="cta-guarantee">🔒 Garantia de 30 dias &middot; Vagas limitadas</p>
+            <button class="cta-button open-modal">QUERO MUDAR MINHA REALIDADE &rarr;</button>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6 — PILARES/MÓDULOS -->
+    <section class="modules-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Conteúdo Completo</span>
+                <h2 class="section-title">Os pilares que transformam sua clínica em negócio de verdade</h2>
+                <p class="section-subtitle">Gestão completa que cobre o que as outras mentorias ignoram.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="mod-number">01</div>
+                    <h3 class="mod-title">Gestão Financeira e Tributária</h3>
+                    <p class="mod-desc">Controle de caixa, margem por procedimento, pró-labore, planejamento tributário.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">02</div>
+                    <h3 class="mod-title">Gestão Comercial</h3>
+                    <p class="mod-desc">Processo comercial, conversão de orçamentos, ticket médio, funil de vendas.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">03</div>
+                    <h3 class="mod-title">Gestão de Processos</h3>
+                    <p class="mod-desc">SOPs, fluxos operacionais, padronização que libera o médico da operação.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">04</div>
+                    <h3 class="mod-title">Gestão de Pessoas</h3>
+                    <p class="mod-desc">Contratação, treinamento, metas, cultura e equipe de alta performance.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">05</div>
+                    <h3 class="mod-title">Posicionamento Premium</h3>
+                    <p class="mod-desc">Como cobrar mais, atrair pacientes ideais e se posicionar como referência.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">06</div>
+                    <h3 class="mod-title">Experiência do Paciente</h3>
+                    <p class="mod-desc">Jornada do paciente, fidelização, indicações e encantamento.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">07</div>
+                    <h3 class="mod-title">Marketing Estratégico</h3>
+                    <p class="mod-desc">Captação inteligente sem depender de tráfego caro.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">08</div>
+                    <h3 class="mod-title">Indicadores e Dashboards</h3>
+                    <p class="mod-desc">KPIs essenciais, relatórios e decisões baseadas em dados.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">09</div>
+                    <h3 class="mod-title">Liderança Médica</h3>
+                    <p class="mod-desc">De médico operador a dono de negócio. Mentalidade empresarial.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">10</div>
+                    <h3 class="mod-title">Escalabilidade</h3>
+                    <p class="mod-desc">Como crescer sem perder qualidade e sem trabalhar mais horas.</p>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-40">
+                <button class="cta-button open-modal">QUERO ACESSO A TUDO ISSO &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7 — SOBRE OS MENTORES -->
+    <section class="mentors-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Sobre os Mentores</span>
+                <h2 class="section-title">Quem vai te guiar nessa transformação</h2>
+            </div>
+            
+            <div class="mentors-container">
+                <div class="mentor-row">
+                    <div class="mentor-photo-wrapper">
+                        <!-- Imagem do mentor aqui via css background ou img tag -->
+                        <div class="mentor-photo photo-1"></div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Dr. Adriano Pedutti</h3>
+                        <p class="mentor-title-role">Cirurgião e Palestrante Internacional</p>
+                        <p class="mentor-bio">Criador do Método Peduti para Contorno Corporal e Mamas. Com vasta experiência na construção de clínicas de alto padrão, desenvolveu metodologias próprias de gestão e processos que garantem previsibilidade financeira e qualidade no atendimento, sem depender do dono para tudo.</p>
+                        <div class="mentor-stats">
+                            <div class="stat-card">
+                                <span class="stat-val">20 anos</span>
+                                <span class="stat-label">de Experiência</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-val">+5.000</span>
+                                <span class="stat-label">Cirurgias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mentor-row reverse-row">
+                    <div class="mentor-photo-wrapper">
+                        <div class="mentor-photo photo-2"></div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Dr. Luís Eduardo Barbosa</h3>
+                        <p class="mentor-title-role">Cirurgião e especialista em gestão e escalabilidade de clínicas</p>
+                        <p class="mentor-bio">Sua visão estratégica transformou a maneira como médicos encaram seus consultórios. Focado em indicadores, automação e formação de equipes, Dr. Luís ensina o passo a passo para dobrar os lucros otimizando a rotina do médico.</p>
+                        <div class="mentor-stats">
+                            <div class="stat-card">
+                                <span class="stat-val">+10 anos</span>
+                                <span class="stat-label">Gestão Médica</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-val">R$ 50M+</span>
+                                <span class="stat-label">Faturamento Gerado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 8 — FAQ -->
+    <section class="faq-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Dúvidas Frequentes</span>
+                <h2 class="section-title">Perguntas frequentes</h2>
+            </div>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Para quem é a mentoria DocScale?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Para médicos com 35+ anos que já possuem consultório ou clínica própria, faturam bem, mas sentem que trabalham demais, lucram de menos e não conseguem escalar ou se afastar da operação.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Preciso ter uma clínica grande para participar?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não. Se você já tem um consultório rodando e deseja organizá-lo para crescer com estrutura, processos e indicadores profissionais, a mentoria é o passo certo para você não cometer erros caros de expansão.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quanto tempo dura a mentoria?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O programa principal tem duração de 90 dias, com acompanhamento intenso, encontros focados em implementação e acesso aos materiais e ferramentas de gestão.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Qual o formato: presencial ou online?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O formato base é online com encontros ao vivo, possibilitando a participação de médicos de todo o Brasil, mas com imersões presenciais exclusivas para networking e aprofundamento estratégico.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        E se eu não tiver resultados?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Temos uma garantia incondicional de 30 dias. Se você participar dos primeiros encontros, acessar o material e achar que o método não funciona para a sua realidade, devolvemos 100% do seu investimento.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como funciona o acompanhamento?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Você não estará sozinho. Além dos encontros ao vivo com os mentores, terá acesso a um suporte dedicado para tirar dúvidas de implementação do seu negócio no dia a dia, validando suas ações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9 — CTA FINAL -->
+    <section class="final-cta-section">
+        <div class="container fade-up">
+            <div class="final-cta-card">
+                <span class="tag">Última Chance</span>
+                <h2 class="cta-title">Ou você continua operando sem gestão — ou você aprende o sistema que muda isso em 90 dias.</h2>
+                <p class="cta-urgency">As vagas desta turma estão se esgotando. Garanta sua participação agora.</p>
+                
+                <button class="cta-button large-cta open-modal">QUERO ESCALAR MINHA CLÍNICA &rarr;</button>
+                
+                <div class="cta-badges">
+                    <span class="badge">✓ Garantia de 30 dias</span>
+                    <span class="badge">✓ Pagamento seguro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 10 — FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.jpg" alt="DocScale Logo" class="logo-img footer-logo">
+                    <p class="company-data">DocScale Mentoria Médica LTDA<br>CNPJ: 00.000.000/0001-00<br>Av. Paulista, 1000 - São Paulo, SP</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a>
+                    <a href="mailto:contato@docscale.com.br">E-mail</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="https://instagram.com/docscale.mentoria" target="_blank">@docscale.mentoria</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="disclaimer">Os resultados apresentados são baseados em casos reais de mentorados. Resultados individuais podem variar de acordo com a aplicação do método.</p>
+                <p class="copyright">&copy; 2024 DocScale Mentoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta-mobile">
+        <button class="cta-button open-modal">GARANTIR MINHA VAGA</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
