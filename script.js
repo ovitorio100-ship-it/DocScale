@@ -59,85 +59,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
     openBtns.forEach(btn => btn.addEventListener('click', openModal));
     
-    closeBtn.addEventListener('click', closeModal);
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
     
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
 
     // 4. WhatsApp Mask & Validation
     const waInput = document.getElementById('whatsapp');
     
-    waInput.addEventListener('input', (e) => {
-        let val = e.target.value.replace(/\D/g, '');
-        if (val.length > 11) val = val.slice(0,11);
-        
-        let formatted = '';
-        if (val.length > 0) formatted = '(' + val.substring(0, 2);
-        if (val.length > 2) formatted += ') ' + val.substring(2, 7);
-        if (val.length > 7) formatted += '-' + val.substring(7, 11);
-        
-        e.target.value = formatted;
-    });
+    if (waInput) {
+        waInput.addEventListener('input', (e) => {
+            let val = e.target.value.replace(/\D/g, '');
+            if (val.length > 11) val = val.slice(0,11);
+            
+            let formatted = '';
+            if (val.length > 0) formatted = '(' + val.substring(0, 2);
+            if (val.length > 2) formatted += ') ' + val.substring(2, 7);
+            if (val.length > 7) formatted += '-' + val.substring(7, 11);
+            
+            e.target.value = formatted;
+        });
+    }
 
     // Form Submission
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const inputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                input.classList.add('error');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const inputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    isValid = false;
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            // WhatsApp length validation (aprox 14-15 chars with formatting)
+            if (waInput && waInput.value.length < 14) {
+                waInput.classList.add('error');
                 isValid = false;
-            } else {
-                input.classList.remove('error');
+            }
+
+            if (isValid) {
+                const btn = form.querySelector('button[type="submit"]');
+                if (btn) {
+                    const originalText = btn.textContent;
+                    btn.textContent = 'PROCESSANDO...';
+                    btn.style.pointerEvents = 'none';
+                    
+                    setTimeout(() => {
+                        btn.textContent = 'INSCRIÇÃO REALIZADA!';
+                        btn.style.background = 'var(--color-green)';
+                        
+                        setTimeout(() => {
+                            if (typeof closeModal === 'function') closeModal();
+                            form.reset();
+                            btn.textContent = originalText;
+                            btn.style.background = '';
+                            btn.style.pointerEvents = '';
+                        }, 2000);
+                    }, 1500);
+                }
             }
         });
 
-        // WhatsApp length validation (aprox 14-15 chars with formatting)
-        if (waInput.value.length < 14) {
-            waInput.classList.add('error');
-            isValid = false;
-        }
-
-        if (isValid) {
-            // Replace with actual form submission logic
-            const btn = form.querySelector('.submit-btn');
-            const originalText = btn.textContent;
-            btn.textContent = 'ENVIANDO...';
-            btn.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                btn.textContent = 'INSCRIÇÃO REALIZADA!';
-                btn.style.background = 'var(--color-green)';
-                
-                setTimeout(() => {
-                    closeModal();
-                    form.reset();
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    btn.style.pointerEvents = '';
-                }, 2000);
-            }, 1500);
-        }
-    });
-
-    // Remove error class on input
-    form.querySelectorAll('input').forEach(input => {
-        input.addEventListener('input', () => {
-            input.classList.remove('error');
+        // Remove error class on input
+        form.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('error');
+            });
         });
-    });
+    }
 
     // Batch Countdown Logic (Evergreen 3 days)
     const countdownEl = document.getElementById('batch-countdown');
@@ -145,11 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const daysEl = document.getElementById('cd-days');
         const hoursEl = document.getElementById('cd-hours');
         
-        let batchTurnDate = localStorage.getItem('docscale_countdown_end');
+        let batchTurnDateStr = localStorage.getItem('docscale_countdown_end');
+        let batchTurnDate = parseInt(batchTurnDateStr);
         const threeDaysMs = 3 * 24 * 60 * 60 * 1000;
         
-        // If not set or already expired, set new deadline 3 days from now
-        if (!batchTurnDate || new Date().getTime() > parseInt(batchTurnDate)) {
+        // If not set, invalid, or already expired, set new deadline 3 days from now
+        if (!batchTurnDate || isNaN(batchTurnDate) || new Date().getTime() > batchTurnDate) {
             batchTurnDate = new Date().getTime() + threeDaysMs;
             localStorage.setItem('docscale_countdown_end', batchTurnDate);
         }
@@ -159,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let distance = batchTurnDate - now;
             
             // If expired during session, reset it again
-            if (distance < 0) {
+            if (distance < 0 || isNaN(distance)) {
                 batchTurnDate = new Date().getTime() + threeDaysMs;
                 localStorage.setItem('docscale_countdown_end', batchTurnDate);
                 distance = batchTurnDate - now;
