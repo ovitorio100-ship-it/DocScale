@@ -48,24 +48,28 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--gold-primary);
+    background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
     color: #000;
-    text-align: center;
-    padding: 10px 15px;
+    padding: 12px 15px;
     font-size: 0.95rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .top-banner span {
     background: #000;
-    color: var(--gold-primary);
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin: 0 2px;
+    color: #ffd700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    display: inline-block;
 }
 
 h1, h2, h3, h4, h5, h6 {
