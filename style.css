@@ -366,9 +366,13 @@ section {
 }
 
 .logo-img {
-    height: 40px;
+    height: auto;
+    max-height: 80px;
     width: auto;
+    max-width: 250px;
     margin-bottom: 30px;
+    /* Adicionando filtro invert para logos escuros no fundo preto virarem brancos */
+    filter: brightness(0) invert(1);
 }
 
 .logo-dot {
