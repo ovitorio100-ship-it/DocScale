@@ -602,6 +602,26 @@ section {
     color: var(--text-muted);
 }
 
+.countdown-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .countdown-text {
+        font-size: 0.95rem;
+        padding: 10px 15px;
+    }
+}
+
 .gold-col .col-list li {
     color: var(--text-white);
 }
