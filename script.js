@@ -190,4 +190,23 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateCountdown, 1000); // Update every second
     }
 
+    // Video Play Button Logic
+    const videoWrappers = document.querySelectorAll('.video-wrapper');
+    videoWrappers.forEach(wrapper => {
+        const video = wrapper.querySelector('video');
+        const playBtn = wrapper.querySelector('.custom-play-btn');
+        
+        if(video && playBtn) {
+            video.addEventListener('play', () => {
+                playBtn.style.opacity = '0';
+            });
+            video.addEventListener('pause', () => {
+                playBtn.style.opacity = '1';
+            });
+            video.addEventListener('ended', () => {
+                playBtn.style.opacity = '1';
+            });
+        }
+    });
+
 });

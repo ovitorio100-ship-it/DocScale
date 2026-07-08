@@ -875,8 +875,41 @@ section {
 
 .video-test {
     aspect-ratio: 9/16;
-    background-color: #000;
+    background-color: #111;
     object-fit: cover;
+}
+
+/* Custom Play Button for Video Testimonials */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.custom-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(201, 168, 76, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+    transition: opacity 0.3s;
+}
+
+.play-icon {
+    border-left: 18px solid #fff;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    margin-left: 6px;
 }
 
 @media (max-width: 768px) {
