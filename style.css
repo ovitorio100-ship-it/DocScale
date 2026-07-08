@@ -868,6 +868,12 @@ section {
     display: block;
 }
 
+.video-test {
+    aspect-ratio: 9/16;
+    background-color: #000;
+    object-fit: cover;
+}
+
 /* Modules Section */
 .modules-grid {
     display: grid;
