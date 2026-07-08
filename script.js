@@ -139,22 +139,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Batch Countdown Logic
+    // Batch Countdown Logic (Evergreen 3 days)
     const countdownEl = document.getElementById('batch-countdown');
     if (countdownEl) {
         const daysEl = document.getElementById('cd-days');
         const hoursEl = document.getElementById('cd-hours');
         
-        // Set batch turn date
-        const batchTurnDate = new Date('2026-07-25T23:59:59').getTime();
+        let batchTurnDate = localStorage.getItem('docscale_countdown_end');
+        const threeDaysMs = 3 * 24 * 60 * 60 * 1000;
+        
+        // If not set or already expired, set new deadline 3 days from now
+        if (!batchTurnDate || new Date().getTime() > parseInt(batchTurnDate)) {
+            batchTurnDate = new Date().getTime() + threeDaysMs;
+            localStorage.setItem('docscale_countdown_end', batchTurnDate);
+        }
         
         const updateCountdown = () => {
             const now = new Date().getTime();
-            const distance = batchTurnDate - now;
+            let distance = batchTurnDate - now;
             
+            // If expired during session, reset it again
             if (distance < 0) {
-                countdownEl.innerHTML = "LOTE VIRADO";
-                return;
+                batchTurnDate = new Date().getTime() + threeDaysMs;
+                localStorage.setItem('docscale_countdown_end', batchTurnDate);
+                distance = batchTurnDate - now;
             }
             
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
