@@ -139,4 +139,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Batch Countdown Logic
+    const countdownEl = document.getElementById('batch-countdown');
+    if (countdownEl) {
+        const daysEl = document.getElementById('cd-days');
+        const hoursEl = document.getElementById('cd-hours');
+        
+        // Set batch turn date
+        const batchTurnDate = new Date('2026-07-25T23:59:59').getTime();
+        
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = batchTurnDate - now;
+            
+            if (distance < 0) {
+                countdownEl.innerHTML = "LOTE VIRADO";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            if(daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+            if(hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+        };
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000 * 60 * 60); // Update every hour
+    }
+
 });
