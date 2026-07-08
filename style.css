@@ -874,6 +874,12 @@ section {
     object-fit: cover;
 }
 
+@media (max-width: 768px) {
+    .prints-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Modules Section */
 .modules-grid {
     display: grid;
