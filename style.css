@@ -63,13 +63,70 @@ body {
     gap: 8px;
 }
 
-.top-banner span {
+.top-banner span.cd-colon {
+    background: transparent;
+    color: #000;
+    padding: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.countdown-blocks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.cd-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cd-number {
     background: #000;
     color: #ffd700;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 6px;
-    font-size: 1.1rem;
-    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    min-width: 45px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.cd-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #000;
+    margin-top: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .top-banner {
+        flex-direction: column;
+        padding: 8px;
+        gap: 6px;
+    }
+    .countdown-blocks {
+        gap: 4px;
+    }
+    .cd-number {
+        font-size: 1.2rem;
+        padding: 4px 6px;
+        min-width: 35px;
+    }
+    .cd-label {
+        font-size: 0.5rem;
+    }
+    .top-banner span.cd-colon {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -404,8 +461,6 @@ section {
     width: auto;
     max-width: 250px;
     margin-bottom: 30px;
-    /* Adicionando filtro invert para logos escuros no fundo preto virarem brancos */
-    filter: brightness(0) invert(1);
 }
 
 .logo-dot {
