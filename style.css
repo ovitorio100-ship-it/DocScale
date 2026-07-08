@@ -461,6 +461,7 @@ section {
     width: auto;
     max-width: 250px;
     margin-bottom: 30px;
+    mix-blend-mode: screen; /* Removes solid black background automatically */
 }
 
 .logo-dot {
