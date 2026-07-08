@@ -8,12 +8,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
     <!-- Top Countdown Banner -->
     <div class="top-banner" id="batch-countdown">
-        FALTAM <span id="cd-days">--</span> DIAS E <span id="cd-hours">--</span> HORAS PARA A VIRADA DE LOTE
+        <span class="banner-text">FALTAM:</span>
+        <div class="countdown-blocks">
+            <div class="cd-block">
+                <div class="cd-number" id="cd-days">--</div>
+                <div class="cd-label">DIAS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-hours">--</div>
+                <div class="cd-label">HORAS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-minutes">--</div>
+                <div class="cd-label">MINUTOS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-seconds">--</div>
+                <div class="cd-label">SEGUNDOS</div>
+            </div>
+        </div>
+        <span class="banner-text">PARA A VIRADA DE LOTE</span>
     </div>
 
     
@@ -385,7 +407,7 @@
 
     
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
 

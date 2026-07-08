@@ -167,13 +167,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
             if(daysEl) daysEl.innerText = days.toString().padStart(2, '0');
             if(hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+            if(document.getElementById('cd-minutes')) document.getElementById('cd-minutes').innerText = minutes.toString().padStart(2, '0');
+            if(document.getElementById('cd-seconds')) document.getElementById('cd-seconds').innerText = seconds.toString().padStart(2, '0');
         };
         
         updateCountdown();
-        setInterval(updateCountdown, 1000 * 60 * 60); // Update every hour
+        setInterval(updateCountdown, 1000); // Update every second
     }
 
 });
