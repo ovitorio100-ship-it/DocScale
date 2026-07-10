@@ -145,6 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             btn.textContent = originalText;
                             btn.style.background = '';
                             btn.style.pointerEvents = '';
+                            
+                            // Redirect to WhatsApp
+                            const waMessage = encodeURIComponent('Olá! Preenchi o formulário no site e gostaria de garantir meu ingresso para o DocScale.');
+                            window.location.href = `https://api.whatsapp.com/send?phone=553497996286&text=${waMessage}`;
                         }, 2000);
                     }, 1500);
                 }
