@@ -124,6 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     'event': 'lead_form_submit'
                 });
 
+                // Fire Meta Pixel Event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead');
+                }
+
                 const btn = form.querySelector('button[type="submit"]');
                 if (btn) {
                     const originalText = btn.textContent;
