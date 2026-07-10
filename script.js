@@ -118,6 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (isValid) {
+                // Fire GTM Event
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'lead_form_submit'
+                });
+
                 const btn = form.querySelector('button[type="submit"]');
                 if (btn) {
                     const originalText = btn.textContent;
