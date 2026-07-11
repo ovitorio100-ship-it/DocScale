@@ -134,11 +134,39 @@ document.addEventListener('DOMContentLoaded', () => {
                     const originalText = btn.textContent;
                     btn.textContent = 'PROCESSANDO...';
                     btn.style.pointerEvents = 'none';
-                    
-                    setTimeout(() => {
+
+                    const nomeEl = document.getElementById('name');
+                    const emailEl = document.getElementById('email');
+                    const specialtyEl = document.getElementById('specialty');
+                    const revenueEl = document.getElementById('revenue');
+
+                    const SUPABASE_URL = 'https://wxxhsuprddzprnrwovwi.supabase.co';
+                    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4eGhzdXByZGR6cHJucndvdndpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExOTk5NjAsImV4cCI6MjA5Njc3NTk2MH0.dUzaz0tcZKTPyVlKOwimKRKW05swtWvT2NWHe0AqTtA';
+
+                    fetch(`${SUPABASE_URL}/functions/v1/landing-page-lead`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'apikey': SUPABASE_ANON_KEY,
+                        },
+                        body: JSON.stringify({
+                            org: 'docscale',
+                            pagina: 'forms',
+                            nome: nomeEl ? nomeEl.value.trim() : '',
+                            email: emailEl ? emailEl.value.trim() : '',
+                            telefone: waInput ? waInput.value : '',
+                            especialidade: specialtyEl ? specialtyEl.value.trim() : '',
+                            faturamento: revenueEl ? revenueEl.value : '',
+                        }),
+                    })
+                    .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+                    .then(({ ok, data }) => {
+                        if (!ok || !data.ok) throw new Error((data && data.error) || 'Falha ao enviar inscrição');
+
                         btn.textContent = 'INSCRIÇÃO REALIZADA!';
                         btn.style.background = 'var(--color-green)';
-                        
+
                         setTimeout(() => {
                             if (typeof closeModal === 'function') closeModal();
                             form.reset();
@@ -150,7 +178,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             const waMessage = encodeURIComponent('Olá! Preenchi o formulário no site e gostaria de garantir meu ingresso para o DocScale.');
                             window.location.href = `https://api.whatsapp.com/send?phone=553497996286&text=${waMessage}`;
                         }, 2000);
-                    }, 1500);
+                    })
+                    .catch(() => {
+                        btn.textContent = 'ERRO. TENTE NOVAMENTE';
+                        btn.style.background = '#c0392b';
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                            btn.style.background = '';
+                            btn.style.pointerEvents = '';
+                        }, 2500);
+                    });
                 }
             }
         });
