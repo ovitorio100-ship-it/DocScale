@@ -23,14 +23,14 @@ jobs:
       - name: Mirror files into PPDash
         run: |
           rsync -a --delete --exclude='.git' --exclude='.github' \
-            docscale/ ppdash/scalecompany-6667ad53/landing-pages/docscale/
+            docscale/ ppdash/landing-pages/docscale/
 
       - name: Commit and push if changed
         working-directory: ppdash
         run: |
           git config user.name "docscale-sync-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add scalecompany-6667ad53/landing-pages/docscale
+          git add landing-pages/docscale
           if git diff --cached --quiet; then
             echo "Nada para sincronizar."
             exit 0
