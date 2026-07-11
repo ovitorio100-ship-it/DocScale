@@ -1,0 +1,39 @@
+name: Sync landing pages to PPDash
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout DocScale
+        uses: actions/checkout@v4
+        with:
+          path: docscale
+
+      - name: Checkout PPDash
+        uses: actions/checkout@v4
+        with:
+          repository: joaomsouzzaa/PPDash
+          token: ${{ secrets.SYNC_TOKEN }}
+          path: ppdash
+
+      - name: Mirror files into PPDash
+        run: |
+          rsync -a --delete --exclude='.git' --exclude='.github' \
+            docscale/ ppdash/scalecompany-6667ad53/landing-pages/docscale/
+
+      - name: Commit and push if changed
+        working-directory: ppdash
+        run: |
+          git config user.name "docscale-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add scalecompany-6667ad53/landing-pages/docscale
+          if git diff --cached --quiet; then
+            echo "Nada para sincronizar."
+            exit 0
+          fi
+          git commit -m "sync: landing pages a partir de DocScale@${{ github.sha }} [sync]"
+          git push origin main
