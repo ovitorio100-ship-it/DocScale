@@ -1,39 +1,384 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WZ6P4TML');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocScale | O Novo Médico Gestor</title>
     <meta name="description" content="Imersão Presencial de 2 Dias para Médicos em Vitória-ES. Transforme sua clínica em um negócio lucrativo, profissional e escalável.">
+    
+    <!-- Preconnect to Font Servers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=18">
+    
+    <!-- Async Google Fonts Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
-    <!-- Meta Pixel Code -->
+    <!-- Inline Critical CSS (Above-the-Fold) -->
+    <style id="critical-css">
+    :root {
+        --bg-dark: #080808;
+        --bg-card: #111111;
+        --gold-primary: #C9A84C;
+        --gold-light: #F0C060;
+        --gold-gradient: linear-gradient(135deg, #C9A84C 0%, #F0C060 100%);
+        --gold-rgba-15: rgba(201, 168, 76, 0.15);
+        --gold-rgba-30: rgba(201, 168, 76, 0.3);
+        --text-white: #FFFFFF;
+        --text-muted: #999999;
+        --color-green: #22C55E;
+        --color-red: #EF4444;
+        --border-radius-btn: 8px;
+        --border-radius-card: 12px;
+        --border-radius-section: 20px;
+        --font-heading: 'Montserrat', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-white);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        padding-top: 40px;
+    }
+    .top-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
+        color: #000;
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .top-banner span.cd-colon {
+        background: transparent;
+        color: #000;
+        padding: 0;
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 14px;
+    }
+    .countdown-blocks {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+    .cd-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cd-number {
+        background: #000;
+        color: #ffd700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 1.4rem;
+        font-weight: 800;
+        min-width: 45px;
+        text-align: center;
+        line-height: 1.2;
+    }
+    .cd-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: 2px;
+        text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+        .top-banner {
+            flex-direction: row;
+            padding: 6px 10px;
+            gap: 8px;
+        }
+        .top-banner .banner-text {
+            font-size: 0.75rem;
+        }
+        .countdown-blocks {
+            gap: 4px;
+        }
+        .cd-number {
+            font-size: 1rem;
+            padding: 2px 5px;
+            min-width: 30px;
+            border-radius: 4px;
+        }
+        .cd-label {
+            font-size: 0.45rem;
+            margin-top: 1px;
+        }
+        .top-banner span.cd-colon {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        font-weight: 800;
+        line-height: 1.2;
+    }
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    section {
+        padding: 80px 0;
+    }
+    @media (max-width: 768px) {
+        section {
+            padding: 60px 0;
+        }
+    }
+    .cta-button {
+        background: var(--gold-gradient);
+        color: #000;
+        font-family: var(--font-heading);
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 18px 32px;
+        border: none;
+        border-radius: var(--border-radius-btn);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    }
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4);
+    }
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at 70% 50%, rgba(201,168,76,0.1) 0%, transparent 60%);
+        z-index: 1;
+        pointer-events: none;
+    }
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+    .logo-img {
+        height: auto;
+        max-height: 80px;
+        width: auto;
+        max-width: 250px;
+        margin-bottom: 30px;
+        mix-blend-mode: screen;
+    }
+    .eyebrow {
+        color: var(--gold-primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.875rem;
+        margin-bottom: 20px;
+    }
+    .headline {
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+    }
+    .hero-content .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        max-width: 90%;
+    }
+    .meta-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+    .meta-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--gold-primary);
+    }
+    .progress-container {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid #222;
+        padding: 15px 20px;
+        border-radius: var(--border-radius-card);
+        margin-bottom: 40px;
+        max-width: 400px;
+    }
+    .progress-text {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .progress-bar-bg {
+        background: #222;
+        height: 6px;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        height: 100%;
+        background: var(--gold-gradient);
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(201,168,76,0.5);
+        transform-origin: left;
+        animation: fillProgress 1.5s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+    }
+    @keyframes fillProgress {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+    .hero-image-area {
+        background-position: center 10%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: var(--border-radius-section);
+        height: 600px;
+        position: relative;
+        border: 1px solid var(--gold-rgba-30);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    @media (max-width: 768px) {
+        .hero-image-area {
+            background-image: url('hero-mobile.webp');
+        }
+    }
+    @media (min-width: 769px) {
+        .hero-image-area {
+            background-image: url('hero-desktop.webp');
+        }
+    }
+    .hero-image-area::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--bg-dark) 0%, transparent 50%, rgba(0,0,0,0.4) 100%);
+        border-radius: var(--border-radius-section);
+    }
+    @media (max-width: 992px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+        }
+        .headline { font-size: 2.5rem; }
+        .hero-image-area {
+            height: 400px;
+            order: -1;
+            margin-bottom: 30px;
+        }
+        .hero-image-area::after {
+            background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-section {
+            padding-top: 70px;
+        }
+        .headline { font-size: 2rem; }
+        .hero-content .subtitle { font-size: 1.05rem; }
+        .hero-image-area {
+            height: 280px;
+            margin-bottom: 20px;
+        }
+        .meta-items {
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+    }
+    </style>
+
+    <!-- Async Non-Critical CSS Loading -->
+    <link rel="preload" href="style.css?v=21" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="style.css?v=21">
+    </noscript>
+
+    <!-- Lazy Loaded Third-Party Analytics (GTM & Meta Pixel) -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1120944751111227');
-    fbq('track', 'PageView');
+    (function() {
+        var initialized = false;
+        function initAnalytics() {
+            if (initialized) return;
+            initialized = true;
+            
+            // Google Tag Manager
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WZ6P4TML');
+
+            // Meta Pixel Code
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1120944751111227');
+            fbq('track', 'PageView');
+        }
+
+        // Initialize GTM and Pixel after 2.5s or on first user interaction (scroll, click, touch, keydown, mousemove)
+        var timer = setTimeout(initAnalytics, 2500);
+        var triggerEvents = ['mouseover', 'keydown', 'touchstart', 'scroll', 'click'];
+        triggerEvents.forEach(function(event) {
+            window.addEventListener(event, function() {
+                clearTimeout(timer);
+                initAnalytics();
+            }, { once: true, passive: true });
+        });
+    })();
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1120944751111227&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -106,7 +451,7 @@
     <section class="hero-section">
         <div class="container hero-container">
             <div class="hero-content fade-up">
-                <img src="logo.png" alt="DocScale Logo" class="logo-img">
+                <img src="logo.webp" alt="DocScale Logo" class="logo-img" width="250" height="80">
                 <div class="eyebrow">Imersão Presencial de 2 Dias &middot; Vagas Limitadas</div>
                 <h1 class="headline">Descubra como transformar sua clínica em um negócio lucrativo, profissional e escalável</h1>
                 <p class="subtitle">O evento que une gestão empresarial de alto nível com a realidade do médico empreendedor. Aprenda com quem vive a trincheira clínica.</p>
@@ -293,13 +638,13 @@
             <div class="testimonials-grid prints-grid">
                 <div class="print-card">
                     <div class="video-wrapper">
-                        <video src="depoimentos.MOV#t=0.001" controls playsinline preload="metadata" class="print-img video-test"></video>
+                        <video src="depoimentos.MOV#t=0.001" controls playsinline preload="none" class="print-img video-test"></video>
                         <div class="custom-play-btn"><div class="play-icon"></div></div>
                     </div>
                 </div>
                 <div class="print-card">
                     <div class="video-wrapper">
-                        <video src="depoimentos2.MOV#t=0.001" controls playsinline preload="metadata" class="print-img video-test"></video>
+                        <video src="depoimentos2.MOV#t=0.001" controls playsinline preload="none" class="print-img video-test"></video>
                         <div class="custom-play-btn"><div class="play-icon"></div></div>
                     </div>
                 </div>
@@ -438,7 +783,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="logo.png" alt="DocScale Logo" class="logo-img footer-logo">
+                    <img src="logo.webp" alt="DocScale Logo" class="logo-img footer-logo" width="250" height="80">
                     <p class="company-data">DocScale Mentoria Médica LTDA</p>
                 </div>
                 <div class="footer-links">
@@ -461,6 +806,6 @@
         <button class="cta-button open-modal">GARANTIR MEU INGRESSO</button>
     </div>
 
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=21" defer></script>
 </body>
 </html>
