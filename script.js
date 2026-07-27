@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isRevenueValid = revenueSelect && revenueSelect.value !== '';
 
         if (isNameValid && isEmailValid && isWhatsappValid && isSpecialtyValid && isRevenueValid) {
-            submitBtn.removeAttribute('disabled');
+            submitBtn.disabled = false;
         } else {
-            submitBtn.setAttribute('disabled', 'true');
+            submitBtn.disabled = true;
         }
     };
     
