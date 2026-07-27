@@ -230,6 +230,15 @@ section {
     box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4);
 }
 
+.cta-button[disabled] {
+    background: #333333 !important;
+    color: #777777 !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 .large-cta {
     font-size: 1.125rem;
     padding: 22px 40px;

@@ -45,11 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const openBtns = document.querySelectorAll('.open-modal');
     const closeBtn = document.querySelector('.modal-close');
     const form = document.getElementById('lead-form');
+    const waInput = document.getElementById('whatsapp');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const specialtyInput = document.getElementById('specialty');
+    const revenueSelect = document.getElementById('revenue');
+    const submitBtn = form ? form.querySelector('.submit-btn') : null;
+
+    const checkFormValidity = () => {
+        if (!form || !submitBtn) return;
+        const isNameValid = nameInput && nameInput.value.trim().length > 0;
+        const isEmailValid = emailInput && emailInput.value.trim().length > 0 && emailInput.checkValidity();
+        const isWhatsappValid = waInput && waInput.value.replace(/\D/g, '').length >= 10;
+        const isSpecialtyValid = specialtyInput && specialtyInput.value.trim().length > 0;
+        const isRevenueValid = revenueSelect && revenueSelect.value !== '';
+
+        if (isNameValid && isEmailValid && isWhatsappValid && isSpecialtyValid && isRevenueValid) {
+            submitBtn.removeAttribute('disabled');
+        } else {
+            submitBtn.setAttribute('disabled', 'true');
+        }
+    };
     
     const openModal = (e) => {
         if(e) e.preventDefault();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        checkFormValidity();
     };
 
     const closeModal = () => {
@@ -78,8 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. WhatsApp Mask & Validation
-    const waInput = document.getElementById('whatsapp');
-    
     if (waInput) {
         waInput.addEventListener('input', (e) => {
             let val = e.target.value.replace(/\D/g, '');
@@ -170,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             if (typeof closeModal === 'function') closeModal();
                             form.reset();
+                            checkFormValidity();
                             btn.textContent = originalText;
                             btn.style.background = '';
                             btn.style.pointerEvents = '';
@@ -192,12 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Remove error class on input
+        // Remove error class on input and check validity in real-time
         form.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', () => {
                 input.classList.remove('error');
+                checkFormValidity();
             });
         });
+
+        if (revenueSelect) {
+            revenueSelect.addEventListener('change', checkFormValidity);
+        }
     }
 
     // Batch Countdown Logic (Evergreen 3 days)
