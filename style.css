@@ -1261,3 +1261,205 @@ section {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
+
+/* ------------------------
+   PRICING SECTION
+------------------------ */
+.pricing-section {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(201, 168, 76, 0.03) 50%, var(--bg-dark) 100%);
+    position: relative;
+}
+
+.pricing-container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--gold-rgba-30);
+    border-radius: var(--border-radius-section);
+    padding: 50px 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(201, 168, 76, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-light);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(201, 168, 76, 0.1);
+}
+
+/* Urgency Tag inside Card */
+.urgency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, rgba(201, 168, 76, 0.15) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-red);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+.ticket-name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-white);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.ticket-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 35px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Pricing Info styling */
+.price-box {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.price-currency {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gold-light);
+}
+
+.price-value {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--text-white);
+    line-height: 1;
+    font-family: var(--font-heading);
+    letter-spacing: -1px;
+}
+
+.price-period {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gold-primary);
+}
+
+.scarcity-text {
+    font-size: 1.1rem;
+    color: var(--color-red);
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Inclusions List styling */
+.inclusions-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 45px;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+}
+
+.inclusions-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: #E2E8F0;
+    line-height: 1.5;
+}
+
+.check-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--gold-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Green CTA Button styling */
+.green-cta {
+    background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%) !important;
+    color: #FFF !important;
+    font-size: 1.125rem;
+    padding: 20px 40px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.green-cta:hover {
+    background: linear-gradient(135deg, #4ADE80 0%, #15803D 100%) !important;
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5) !important;
+    transform: translateY(-2px) !important;
+}
+
+.secure-checkout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 20px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .pricing-card {
+        padding: 35px 20px;
+    }
+    .ticket-name {
+        font-size: 1.6rem;
+    }
+    .price-value {
+        font-size: 3rem;
+    }
+    .inclusions-list li {
+        font-size: 0.95rem;
+    }
+}

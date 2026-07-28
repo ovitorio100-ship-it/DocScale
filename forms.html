@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocScale | O Novo Médico Gestor</title>
+    <meta name="description" content="Imersão Presencial de 2 Dias para Médicos em Vitória-ES. Acesse as ferramentas que nos fizeram construir um ecossistema empresarial clínico de sucesso!">
+    
+    <!-- Preconnect to Font Servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Async Google Fonts Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Inline Critical CSS (Above-the-Fold) -->
+    <style id="critical-css">
+    :root {
+        --bg-dark: #080808;
+        --bg-card: #111111;
+        --gold-primary: #C9A84C;
+        --gold-light: #F0C060;
+        --gold-gradient: linear-gradient(135deg, #C9A84C 0%, #F0C060 100%);
+        --gold-rgba-15: rgba(201, 168, 76, 0.15);
+        --gold-rgba-30: rgba(201, 168, 76, 0.3);
+        --text-white: #FFFFFF;
+        --text-muted: #999999;
+        --color-green: #22C55E;
+        --color-red: #EF4444;
+        --border-radius-btn: 8px;
+        --border-radius-card: 12px;
+        --border-radius-section: 20px;
+        --font-heading: 'Montserrat', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-white);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        padding-top: 40px;
+    }
+    .top-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
+        color: #000;
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .top-banner span.cd-colon {
+        background: transparent;
+        color: #000;
+        padding: 0;
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 14px;
+    }
+    .countdown-blocks {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+    .cd-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cd-number {
+        background: #000;
+        color: #ffd700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 1.4rem;
+        font-weight: 800;
+        min-width: 45px;
+        text-align: center;
+        line-height: 1.2;
+    }
+    .cd-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: 2px;
+        text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+        .top-banner {
+            flex-direction: row;
+            padding: 6px 10px;
+            gap: 8px;
+        }
+        .top-banner .banner-text {
+            font-size: 0.75rem;
+        }
+        .countdown-blocks {
+            gap: 4px;
+        }
+        .cd-number {
+            font-size: 1rem;
+            padding: 2px 5px;
+            min-width: 30px;
+            border-radius: 4px;
+        }
+        .cd-label {
+            font-size: 0.45rem;
+            margin-top: 1px;
+        }
+        .top-banner span.cd-colon {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        font-weight: 800;
+        line-height: 1.2;
+    }
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    section {
+        padding: 80px 0;
+    }
+    @media (max-width: 768px) {
+        section {
+            padding: 60px 0;
+        }
+    }
+    .cta-button {
+        background: var(--gold-gradient);
+        color: #000;
+        font-family: var(--font-heading);
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 18px 32px;
+        border: none;
+        border-radius: var(--border-radius-btn);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    }
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4);
+    }
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at 70% 50%, rgba(201,168,76,0.1) 0%, transparent 60%);
+        z-index: 1;
+        pointer-events: none;
+    }
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+    .logo-img {
+        height: auto;
+        max-height: 80px;
+        width: auto;
+        max-width: 250px;
+        margin-bottom: 30px;
+        mix-blend-mode: screen;
+    }
+    .eyebrow {
+        color: var(--gold-primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.875rem;
+        margin-bottom: 20px;
+    }
+    .headline {
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+    }
+    .hero-content .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        max-width: 90%;
+    }
+    .meta-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+    .meta-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--gold-primary);
+    }
+    .progress-container {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid #222;
+        padding: 15px 20px;
+        border-radius: var(--border-radius-card);
+        margin-bottom: 40px;
+        max-width: 400px;
+    }
+    .progress-text {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .progress-bar-bg {
+        background: #222;
+        height: 6px;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        height: 100%;
+        background: var(--gold-gradient);
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(201,168,76,0.5);
+        transform-origin: left;
+        animation: fillProgress 1.5s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+    }
+    @keyframes fillProgress {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+    .hero-image-area {
+        background-position: center 10%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: var(--border-radius-section);
+        height: 600px;
+        position: relative;
+        border: 1px solid var(--gold-rgba-30);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    @media (max-width: 768px) {
+        .hero-image-area {
+            background-image: url('hero-mobile.webp');
+        }
+    }
+    @media (min-width: 769px) {
+        .hero-image-area {
+            background-image: url('hero-desktop.webp');
+        }
+    }
+    .hero-image-area::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--bg-dark) 0%, transparent 50%, rgba(0,0,0,0.4) 100%);
+        border-radius: var(--border-radius-section);
+    }
+    @media (max-width: 992px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+        }
+        .headline { font-size: 2.5rem; }
+        .hero-image-area {
+            height: 400px;
+            order: -1;
+            margin-bottom: 30px;
+        }
+        .hero-image-area::after {
+            background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+        }
+    }
+    @media (max-width: 768px) {
+        .hero-section {
+            padding-top: 70px;
+        }
+        .headline { font-size: 2rem; }
+        .hero-content .subtitle { font-size: 1.05rem; }
+        .hero-image-area {
+            height: 280px;
+            margin-bottom: 20px;
+        }
+        .meta-items {
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+    }
+    </style>
+
+    <!-- Async Non-Critical CSS Loading -->
+    <link rel="preload" href="style.css?v=2026072702" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="style.css?v=2026072702">
+    </noscript>
+
+    <!-- Lazy Loaded Third-Party Analytics (GTM & Meta Pixel) -->
+    <script>
+    (function() {
+        var initialized = false;
+        function initAnalytics() {
+            if (initialized) return;
+            initialized = true;
+            
+            // Google Tag Manager
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WZ6P4TML');
+
+            // Meta Pixel Code
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1120944751111227');
+            fbq('track', 'PageView');
+        }
+
+        // Initialize GTM and Pixel after 2.5s or on first user interaction (scroll, click, touch, keydown, mousemove)
+        var timer = setTimeout(initAnalytics, 2500);
+        var triggerEvents = ['mouseover', 'keydown', 'touchstart', 'scroll', 'click'];
+        triggerEvents.forEach(function(event) {
+            window.addEventListener(event, function() {
+                clearTimeout(timer);
+                initAnalytics();
+            }, { once: true, passive: true });
+        });
+    })();
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZ6P4TML"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Top Countdown Banner -->
+    <div class="top-banner" id="batch-countdown">
+        <span class="banner-text">FALTAM:</span>
+        <div class="countdown-blocks">
+            <div class="cd-block">
+                <div class="cd-number" id="cd-days">--</div>
+                <div class="cd-label">DIAS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-hours">--</div>
+                <div class="cd-label">HORAS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-minutes">--</div>
+                <div class="cd-label">MINUTOS</div>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="cd-block">
+                <div class="cd-number" id="cd-seconds">--</div>
+                <div class="cd-label">SEGUNDOS</div>
+            </div>
+        </div>
+        <span class="banner-text">PARA A VIRADA DE LOTE</span>
+    </div>
+
+
+
+    <!-- Modal de Captura de Lead -->
+    <div id="lead-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar modal">&times;</button>
+            <h3 class="modal-title">Garanta seu Ingresso</h3>
+            <form id="lead-form" class="modal-form gtm-lead-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" placeholder="WhatsApp" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="specialty" placeholder="Especialidade médica" required>
+                </div>
+                <div class="form-group">
+                    <select id="revenue" required>
+                        <option value="" disabled selected>Faturamento mensal da clínica</option>
+                        <option value="Ate 50k">Até R$ 50.000</option>
+                        <option value="50k a 100k">De R$ 50.000 a R$ 100.000</option>
+                        <option value="100k a 200k">De R$ 100.000 a R$ 200.000</option>
+                        <option value="Acima de 200k">Acima de R$ 200.000</option>
+                    </select>
+                </div>
+                <button type="submit" class="cta-button submit-btn" disabled>CONCLUIR INSCRIÇÃO</button>
+                <p class="privacy-text">🔒 Seus dados são protegidos</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1 — HERO -->
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content fade-up">
+                <img src="logo.webp" alt="DocScale Logo" class="logo-img" width="250" height="80">
+                <div class="eyebrow">Imersão Presencial de 2 Dias &middot; Vagas Limitadas</div>
+                <h1 class="headline">Acesse as ferramentas que nos fizeram construir um ecossistema empresarial clínico de sucesso!</h1>
+                <p class="subtitle">O evento que une gestão empresarial de alto nível com a realidade do médico empreendedor. Aprenda com quem vive a trincheira clínica.</p>
+                
+                <div class="meta-items">
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        Vitória — ES
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        28 e 29 de Agosto
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Imersão 2 Dias
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-text">Vagas limitadas a 60 participantes (Lote atual)</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <a href="#inscricao" class="cta-button">GARANTIR MEU INGRESSO &rarr;</a>
+            </div>
+            <div class="hero-image-area"></div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2 — O PROBLEMA -->
+    <section class="problems-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">A Realidade Atual</span>
+                <h2 class="section-title">Por que a maioria dos médicos trabalha demais e lucra de menos?</h2>
+                <p class="section-subtitle">No evento, vamos quebrar essas três armadilhas que travam a sua clínica.</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title">A ilusão do faturamento</h3>
+                    <p class="card-desc">Faturar R$200 mil e não saber quanto sobrou. Se você não toma decisões baseadas em dados e indicadores reais, está gerenciando no escuro.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title">A armadilha do volume</h3>
+                    <p class="card-desc">Acreditar que a solução é atender mais. O problema não é quantidade, é a falta de um modelo comercial estruturado de alto ticket.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title">Operar sem processos</h3>
+                    <p class="card-desc">Tudo depende de você. Sem SOPs e uma equipe engajada e treinada, sua clínica não é uma empresa, é apenas um emprego de luxo.</p>
+                </div>
+            </div>
+            
+            <div class="center-btn">
+                <a href="#inscricao" class="cta-button">QUERO APRENDER A SUPERAR ISSO &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3 — COMPARATIVO -->
+    <section class="comparison-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <h2 class="section-title">O fim do achismo. O início da gestão profissional.</h2>
+                <p class="section-subtitle">O que você vai descobrir neste evento separa os médicos que sobrevivem dos que escalam.</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-col red-col">
+                    <h3 class="col-title">❌ O Médico Operador</h3>
+                    <ul class="col-list">
+                        <li>❌ Toma decisões baseado em intuição</li>
+                        <li>❌ É refém da agenda clínica</li>
+                        <li>❌ Equipe desalinhada e alta rotatividade</li>
+                        <li>❌ Sem processos definidos</li>
+                        <li>❌ Tributação incorreta comendo a margem</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-col gold-col">
+                    <h3 class="col-title">✅ O Novo Médico Gestor</h3>
+                    <ul class="col-list">
+                        <li>✅ Decide baseado em dados e indicadores reais</li>
+                        <li>✅ Tem previsibilidade financeira e lucro claro</li>
+                        <li>✅ Equipe que performa como um time comercial</li>
+                        <li>✅ Processos que rodam sem sua presença</li>
+                        <li>✅ Margens otimizadas e blindagem tributária</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-40">
+                <a href="#inscricao" class="cta-button">QUERO SER UM MÉDICO GESTOR &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERMEDIÁRIO -->
+    <section class="intermediate-cta">
+        <div class="container text-center fade-up">
+            <p class="cta-guarantee">🎟️ Ingressos limitados para manter a qualidade da imersão presencial</p>
+            <a href="#inscricao" class="cta-button">GARANTIR MEU LUGAR AGORA &rarr;</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4 — O QUE VOCÊ VAI APRENDER -->
+    <section class="modules-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Programação Exclusiva</span>
+                <h2 class="section-title">O que você vai aprender no evento</h2>
+                <p class="section-subtitle">A programação completa para transformar a realidade da sua clínica.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="mod-number">01</div>
+                    <h3 class="mod-title">Faturamento Anual</h3>
+                    <p class="mod-desc">Como construir seu faturamento anual com previsibilidade.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">02</div>
+                    <h3 class="mod-title">A Equipe Mínima</h3>
+                    <p class="mod-desc">Estrutura organizacional e gestão de pessoas e processos para máximo resultado.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">03</div>
+                    <h3 class="mod-title">Gestão por Indicadores</h3>
+                    <p class="mod-desc">Os números que governam clínicas de alta performance.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">04</div>
+                    <h3 class="mod-title">Marketing e Comercial</h3>
+                    <p class="mod-desc">A matemática do crescimento.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">05</div>
+                    <h3 class="mod-title">Construção de Autoridade</h3>
+                    <p class="mod-desc">Comunicação nas redes sociais e posicionamento.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">06</div>
+                    <h3 class="mod-title">Funil Médico de Alta Conversão</h3>
+                    <p class="mod-desc">Relacionamento e percepção de valor.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">07</div>
+                    <h3 class="mod-title">Experiência do Cliente</h3>
+                    <p class="mod-desc">Como criar conexões que geram valor e indicações.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">08</div>
+                    <h3 class="mod-title">Modelo de Negócio Médico</h3>
+                    <p class="mod-desc">Aspectos tributários e jurídicos em consultório e clínicas médicas.</p>
+                </div>
+                <div class="module-card">
+                    <div class="mod-number">09</div>
+                    <h3 class="mod-title">Estrutura Financeira</h3>
+                    <p class="mod-desc">A estrutura financeira de uma clínica lucrativa.</p>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-40">
+                <a href="#inscricao" class="cta-button">QUERO DOMINAR ESTES PILARES &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5 — PROVA SOCIAL -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Resultados Reais</span>
+                <h2 class="section-title">O que acontece quando você aplica esse método</h2>
+                <p class="section-subtitle">Médicos que já vivem a realidade que será ensinada no evento.</p>
+            </div>
+            
+            <div class="testimonials-grid prints-grid">
+                <div class="print-card">
+                    <div class="video-wrapper">
+                        <video src="depoimentos.MOV#t=0.001" controls playsinline preload="none" class="print-img video-test"></video>
+                        <div class="custom-play-btn"><div class="play-icon"></div></div>
+                    </div>
+                </div>
+                <div class="print-card">
+                    <div class="video-wrapper">
+                        <video src="depoimentos2.MOV#t=0.001" controls playsinline preload="none" class="print-img video-test"></video>
+                        <div class="custom-play-btn"><div class="play-icon"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6 — SOBRE OS PALESTRANTES -->
+    <section class="mentors-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Nossos Palestrantes</span>
+                <h2 class="section-title">Quem vai guiar essa imersão de conteúdo</h2>
+                <p class="section-subtitle">Cirurgiões que vivenciam diariamente os desafios que vão ensinar você a superar.</p>
+            </div>
+            
+            <div class="mentors-container">
+                <div class="mentor-row">
+                    <div class="mentor-photo-wrapper">
+                        <div class="mentor-photo photo-1"></div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Dr. Adriano Pedutti</h3>
+                        <p class="mentor-title-role">Cirurgião e Palestrante Internacional</p>
+                        <p class="mentor-bio">Criador do Método Peduti para Contorno Corporal e Mamas. Com vasta experiência na construção de clínicas de alto padrão, desenvolveu metodologias próprias de gestão e processos que garantem previsibilidade financeira e qualidade no atendimento, sem depender do dono para tudo.</p>
+                        <div class="mentor-stats">
+                            <div class="stat-card">
+                                <span class="stat-val">20 anos</span>
+                                <span class="stat-label">de Experiência</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-val">+5.000</span>
+                                <span class="stat-label">Cirurgias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mentor-row reverse-row">
+                    <div class="mentor-photo-wrapper">
+                        <div class="mentor-photo photo-2"></div>
+                    </div>
+                    <div class="mentor-info">
+                        <h3 class="mentor-name">Dr. Luís Eduardo Barbosa</h3>
+                        <p class="mentor-title-role">Cirurgião de referência e Especialista em Gestão</p>
+                        <p class="mentor-bio">Sua visão estratégica transformou a maneira como médicos encaram seus consultórios. Focado em responsabilidade com dados, automação e formação de equipes de alta performance, ensina o passo a passo para otimizar a rotina clínica.</p>
+                        <div class="mentor-stats">
+                            <div class="stat-card">
+                                <span class="stat-val">+10 anos</span>
+                                <span class="stat-label">Gestão Médica</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-val">Referência</span>
+                                <span class="stat-label">Nacional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 7 — PREÇOS -->
+    <section class="pricing-section" id="inscricao">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Inscrição</span>
+                <h2 class="section-title">Ingresso Imersão DocScale</h2>
+                <p class="section-subtitle">Escolha o seu passaporte para a transformação da sua gestão clínica.</p>
+            </div>
+            
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <!-- Urgency Tag -->
+                    <div class="urgency-badge">
+                        <span class="pulse-dot"></span>
+                        Vagas limitadas — Imersão presencial 28 e 29/ago em Vitória-ES
+                    </div>
+                    
+                    <h3 class="ticket-name">Ingresso Imersão DocScale</h3>
+                    
+                    <p class="ticket-description">Acesso completo à imersão presencial para transformar a realidade da sua clínica.</p>
+                    
+                    <!-- Pricing Info -->
+                    <div class="price-box">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value">897,00</span>
+                        <span class="price-period">(lote atual)</span>
+                    </div>
+                    <p class="scarcity-text">Próximo lote: R$ 1.167,00</p>
+                    
+                    <!-- Inclusions List -->
+                    <ul class="inclusions-list">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Acesso completo aos 2 dias de Imersão Presencial com Dr. Adriano Pedutti e Dr. Luís Eduardo Barbosa</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Workbook impresso exclusivo com ferramentas, planilhas e metodologias DocScale</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Sessões intensivas de networking qualificado com médicos de alta performance</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Coffee breaks premium inclusos nos dois dias de imersão</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Certificado oficial de participação da imersão DocScale</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- CTA Button -->
+                    <button class="cta-button green-cta open-modal">GARANTIR MINHA VAGA</button>
+                    
+                    <p class="secure-checkout">
+                        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; margin-right: 4px; vertical-align: middle;">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Ambiente de pagamento 100% seguro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 8 — FAQ -->
+    <section class="faq-section">
+        <div class="container fade-up">
+            <div class="section-header">
+                <span class="tag">Dúvidas Frequentes</span>
+                <h2 class="section-title">Perguntas sobre o evento</h2>
+            </div>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Para quem é o evento da DocScale?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Para médicos com 35+ anos que possuem consultório ou clínica própria e querem melhorar faturamento, aumentar ticket, ter mais tempo de qualidade e escalar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quando e onde será a imersão?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A imersão será realizada presencialmente nos dias 28 e 29 de Agosto de 2026 (sexta-feira e sábado), na cidade de Vitória — ES.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        O que serei capaz de fazer após o evento?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Você entenderá como aplicar o foco em gestão completa, dominando os 5 pilares fundamentais (comercial, processos, pessoas, financeiro e tributário).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Vai ter networking?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! "Comunidade como Força" é um dos nossos valores. Focamos em networking de alto nível, troca de experiências, união e suporte mútuo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quem são os palestrantes?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Dr. Adriano Pedutti e Dr. Luís Eduardo Barbosa, dois cirurgiões de referência nacional com clínicas consolidadas e muita experiência de trincheira.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9 — CTA FINAL -->
+    <section class="final-cta-section">
+        <div class="container fade-up">
+            <div class="final-cta-card">
+                <span class="tag">Última Chance</span>
+                <h2 class="cta-title">A sua clínica cresce até a altura da sua habilidade de gestão. Aprenda a quebrar esse teto.</h2>
+                <p class="cta-urgency">Garanta o seu ingresso agora mesmo antes que as 60 vagas presenciais acabem.</p>
+                
+                <a href="#inscricao" class="cta-button large-cta">QUERO PARTICIPAR DA IMERSÃO &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 10 — FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.webp" alt="DocScale Logo" class="logo-img footer-logo" width="250" height="80">
+                    <p class="company-data">DocScale Mentoria Médica LTDA</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a>
+                    <a href="mailto:contato@docscale.com.br">E-mail</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="https://instagram.com/docscale.mentoria" target="_blank">@docscale.mentoria</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 DocScale. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta-mobile">
+        <a href="#inscricao" class="cta-button">GARANTIR MEU INGRESSO</a>
+    </div>
+
+    <script>
+        window.isFormsPage = true;
+    </script>
+    <script src="script.js?v=2026072702" defer></script>
+</body>
+</html>
