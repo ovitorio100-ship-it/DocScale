@@ -67,7 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
+    const isFormsPage = window.isFormsPage || window.location.pathname.includes('/forms') || window.location.pathname.includes('forms.html') || window.location.href.includes('forms');
+    
+    // Hide pricing section if NOT on the forms page
+    const pricingSection = document.getElementById('inscricao');
+    if (pricingSection && !isFormsPage) {
+        pricingSection.style.display = 'none';
+    }
+    
     const openModal = (e) => {
+        // If we are on forms page and the clicked button is NOT the green pricing CTA, scroll to pricing instead of opening modal
+        if (isFormsPage && e && e.currentTarget && !e.currentTarget.classList.contains('green-cta')) {
+            if (e) e.preventDefault();
+            const target = document.getElementById('inscricao');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            return;
+        }
+
         if(e) e.preventDefault();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
