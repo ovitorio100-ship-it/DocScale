@@ -598,7 +598,6 @@ section {
     .headline { font-size: 2.5rem; }
     .hero-image-area {
         height: 400px;
-        order: -1;
         margin-bottom: 30px;
     }
     .hero-image-area::after {
@@ -939,7 +938,8 @@ section {
 
 @media (max-width: 768px) {
     .prints-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 }
 
@@ -1350,6 +1350,35 @@ section {
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Price Anchoring */
+.price-anchoring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 2px;
+}
+
+.old-price {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.old-price .strikethrough {
+    text-decoration: line-through;
+    text-decoration-color: var(--color-red);
+    text-decoration-thickness: 2px;
+}
+
+.new-price-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold-primary);
+    font-weight: 700;
 }
 
 /* Pricing Info styling */

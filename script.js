@@ -67,25 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    const isFormsPage = window.isFormsPage || window.location.pathname.includes('/forms') || window.location.pathname.includes('forms.html') || window.location.href.includes('forms');
-    
-    // Hide pricing section if NOT on the forms page
-    const pricingSection = document.getElementById('inscricao');
-    if (pricingSection && !isFormsPage) {
-        pricingSection.style.display = 'none';
-    }
+    // Premium Smooth Scroll with Offset for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const headerOffset = 80; // Height of fixed countdown banner + extra padding
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
     
     const openModal = (e) => {
-        // If we are on forms page and the clicked button is NOT the green pricing CTA, scroll to pricing instead of opening modal
-        if (isFormsPage && e && e.currentTarget && !e.currentTarget.classList.contains('green-cta')) {
-            if (e) e.preventDefault();
-            const target = document.getElementById('inscricao');
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-            return;
-        }
-
         if(e) e.preventDefault();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
