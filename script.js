@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const specialtyEl = document.getElementById('specialty');
                     const revenueEl = document.getElementById('revenue');
 
-                    const SUPABASE_URL = 'https://wxxhsuprddzprnrwovwi.supabase.co';
+                    const SUPABASE_URL = 'https://webhook.growthstack.com.br';
                     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4eGhzdXByZGR6cHJucndvdndpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExOTk5NjAsImV4cCI6MjA5Njc3NTk2MH0.dUzaz0tcZKTPyVlKOwimKRKW05swtWvT2NWHe0AqTtA';
 
                     fetch(`${SUPABASE_URL}/functions/v1/landing-page-lead`, {
